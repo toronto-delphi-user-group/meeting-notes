@@ -1,3 +1,5 @@
+# Interfaces
+
 **Presenter: Brian Muegge**
 
 Interfaces are one of those Delphi features that you may not think you need, but once you get comfortable using them, you might wonder how you ever got by without them. In this session, we'll start by looking at the differences between interfaces and classes, and how they relate to one another. We'll discuss some situations in which using interfaces may be preferable to using regular Delphi classes. We'll examine the pros and cons of automatic reference counting by looking at how interfaces are implemented in the Delphi run-time library. Finally, we'll look at how interfaces can be used with other Delphi features such as threads, generics, and run-time type information, including benefits and potential pitfalls.
