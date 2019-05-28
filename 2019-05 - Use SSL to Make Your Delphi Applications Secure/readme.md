@@ -7,3 +7,24 @@ But now, with all of this network traffic, security becomes an issue. How do you
 But it doesn’t have to be.
 
 We’ll use the Delphi Community Edition to create some server applications and other free tools like OpenSSL and Let’s Encrypt to let us talk to them securely.
+
+---
+### Links:
+* [Delphi Community Edition](https://www.embarcadero.com/products/delphi/starter)
+---
+* [Internet packet monitoring components](https://www.magsys.co.uk/delphi/magmonsock.asp) - Magenta Systems
+* [Internet Component Suite](http://www.overbyte.eu/frame_index.html?redirTo=/products/ics.html) - Overbyte
+---
+* [OpenSSL]()
+* [OpenSSL Binaries]()
+* [OpenSSL Cookbook]()
+---
+* [Let's Encrypt]()
+* [Acme Client]()
+* [ZeroSSL]()
+---
+* [CloudFlare]()
+* [Caddy Server]()
+---
+* [Free domain names]()
+* [TDUG test web site](http://tdug.co.nf)
