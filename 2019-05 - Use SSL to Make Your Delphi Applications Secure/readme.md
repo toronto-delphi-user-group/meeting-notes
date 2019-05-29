@@ -16,7 +16,7 @@ We’ll use the Delphi Community Edition to create some server applications and 
 * [Internet Component Suite](http://www.overbyte.eu/frame_index.html?redirTo=/products/ics.html) - Overbyte
 ---
 * [OpenSSL](https://www.openssl.org/)
-* [OpenSSL Binaries](https://wiki.openssl.org/index.php/Binaries)
+* [OpenSSL Binaries](https://www.openssl.org/community/binaries.html)
 * [OpenSSL Cookbook](https://www.feistyduck.com/books/openssl-cookbook)
 ---
 * [Let's Encrypt](https://letsencrypt.org/)
