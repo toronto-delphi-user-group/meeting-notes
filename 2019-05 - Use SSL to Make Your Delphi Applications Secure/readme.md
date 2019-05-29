@@ -17,6 +17,7 @@ We’ll use the Delphi Community Edition to create some server applications and 
 ---
 * [OpenSSL](https://www.openssl.org/)
 * [OpenSSL Binaries](https://www.openssl.org/community/binaries.html)
+* [Understanding and generating OpenSSL config files](https://www.phcomp.co.uk/Tutorials/Web-Technologies/Understanding-and-generating-OpenSSL.cnf-files.html)
 * [OpenSSL Cookbook](https://www.feistyduck.com/books/openssl-cookbook)
 ---
 * [Let's Encrypt](https://letsencrypt.org/)
