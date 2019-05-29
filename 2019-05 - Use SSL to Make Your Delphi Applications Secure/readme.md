@@ -13,7 +13,7 @@ We’ll use the Delphi Community Edition to create some server applications and 
 * [Delphi Community Edition](https://www.embarcadero.com/products/delphi/starter)
 ---
 * [Internet packet monitoring components](https://www.magsys.co.uk/delphi/magmonsock.asp) - Magenta Systems
-* [Internet Component Suite](http://www.overbyte.eu/frame_index.html?redirTo=/products/ics.html) - Overbyte
+* [ICS - Internet Component Suite](http://www.overbyte.eu) - Overbyte
 ---
 * [OpenSSL](https://www.openssl.org/)
 * [OpenSSL Binaries](https://www.openssl.org/community/binaries.html)
