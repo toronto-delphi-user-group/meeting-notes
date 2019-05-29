@@ -9,22 +9,22 @@ But it doesn’t have to be.
 We’ll use the Delphi Community Edition to create some server applications and other free tools like OpenSSL and Let’s Encrypt to let us talk to them securely.
 
 ---
-### Links:
+### Resources:
 * [Delphi Community Edition](https://www.embarcadero.com/products/delphi/starter)
 ---
 * [Internet packet monitoring components](https://www.magsys.co.uk/delphi/magmonsock.asp) - Magenta Systems
 * [Internet Component Suite](http://www.overbyte.eu/frame_index.html?redirTo=/products/ics.html) - Overbyte
 ---
-* [OpenSSL]()
-* [OpenSSL Binaries]()
-* [OpenSSL Cookbook]()
+* [OpenSSL](https://www.openssl.org/)
+* [OpenSSL Binaries](https://wiki.openssl.org/index.php/Binaries)
+* [OpenSSL Cookbook](https://www.feistyduck.com/books/openssl-cookbook)
 ---
-* [Let's Encrypt]()
-* [Acme Client]()
-* [ZeroSSL]()
+* [Let's Encrypt](https://letsencrypt.org/)
+* [Client Applications](https://letsencrypt.org/docs/client-options)
+* [ZeroSSL](https://zerossl.com/)
 ---
-* [CloudFlare]()
-* [Caddy Server]()
+* [CloudFlare](https://www.cloudflare.com/)
+* [Caddy Server](https://caddyserver.com/)
 ---
-* [Free domain names]()
+* [Free domain names](https://palash.tk/How-To-Get-A-Free-Domain)
 * [TDUG test web site](http://tdug.co.nf)
