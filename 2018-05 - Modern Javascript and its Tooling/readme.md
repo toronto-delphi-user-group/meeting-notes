@@ -19,4 +19,4 @@ Expect ribald tales of developer excesses from a crusty curmudgeon who’s seen 
  
 Everyone will go home with a FREE, unlimited copy of ES6.
 
-[Link to his slides](https://slides.com/notorioushttp/modernjs#/)
+[Link to slides](https://slides.com/notorioushttp/modernjs#/)
