@@ -15,6 +15,10 @@ We’ll use the Delphi Community Edition to create some server applications and 
 * [Internet packet monitoring components](https://www.magsys.co.uk/delphi/magmonsock.asp) - Magenta Systems
 * [ICS - Internet Component Suite](http://www.overbyte.eu) - Overbyte
 ---
+* [FastMM - FullDebugMode](https://sergworks.wordpress.com/2018/06/06/fastmm4-fulldebugmode-setup-guide)
+* [Nexus Quality Suite - CodeWatch](https://www.nexusdb.com/support/index.php?q=codewatchfeatures)
+* [Deleaker](https://www.deleaker.com)
+---
 * [OpenSSL](https://www.openssl.org/)
 * [OpenSSL Binaries](https://www.openssl.org/community/binaries.html)
 * [Understanding and generating OpenSSL config files](https://www.phcomp.co.uk/Tutorials/Web-Technologies/Understanding-and-generating-OpenSSL.cnf-files.html)
