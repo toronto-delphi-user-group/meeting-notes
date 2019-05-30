@@ -1,0 +1,336 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+
+  <title>TDUG - SSL with Delphi</title>
+
+  <meta name="description" content="All Delphi all the time">
+  <meta name="author" content="Bruce McGee">
+
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+  <link rel="stylesheet" href="css/reveal.css">
+  <link rel="stylesheet" href="css/theme/black.css" id="theme">
+
+  <!-- Theme used for syntax highlighting of code -->
+  <link rel="stylesheet" href="lib/css/zenburn.css">
+
+  <!-- Printing and PDF exports -->
+  <script>
+    var link = document.createElement( 'link' );
+    link.rel = 'stylesheet';
+    link.type = 'text/css';
+    link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+    document.getElementsByTagName( 'head' )[0].appendChild( link );
+  </script>
+
+  <!--[if lt IE 9]>
+  <script src="lib/js/html5shiv.js"></script>
+  <![endif]-->
+</head>
+
+<body>
+  <div class="reveal">
+
+    <!-- Any section element inside of this container is displayed as a slide -->
+    <div class="slides">
+
+      <section>
+        <h1>TDUG</h1>
+        <h3>Use SSL to make your Delphi applications secure<br><br>For free</h3>
+      </section>
+
+      <section>
+        <section>
+          <h2>First, some history</h2>
+          <p class="fragment">(sorry...)</p>		  
+          <small>
+          <span class="fragment">
+          <ul>
+            <li>D2 - First client socket components (tcp, http, ftp, nntp, smtp...)</li>
+            <li>D3 - First server socket components + MIDAS, web server (WebBroker)</li>
+            <li>D4 - Fastnet components, CORBA</li>
+            <li>D6 - Indy, XML web services (SOAP)</li>
+            <li>D7 - Intraweb Standard</li>
+            <li>D2006 - SOAP server</li>
+            <li>D2009 - Rewrite of DataSnap, REST applications, NativeHTTPClient</li>
+            <li>And more...</li>
+          </ul>
+          <ul>
+            <li>Cross platform</li>
+            <li>UniGUI (using Sencha ext.js)</li>
+            <li>EMS/RAD Server</li>
+          </ul>
+          <ul>
+            <li>GUI (VCL/FMX)</li>
+            <li>Console/Windows service</li>
+            <li>IIS/Apache</li>
+          </ul>
+          </span>
+          </small>
+          <p class="fragment">Delphi does network applications</p>
+        </section>
+      
+        <section>
+          <h2>Inernet components</h2>
+          <small>
+          <ul>
+            <li>Indy - Internet Direct (ships with Delphi)</li>
+            <li>ICS - Internet Component Suite (http://www.overbyte.eu)</li>
+          </ul>
+          </small>
+
+        </section>
+        <section>
+          <h2>Check for memory leaks!</h2>
+          <small>
+          <p>Vitally important in servers that run for months at a time</p>
+          <ul>
+            <li>FastMM - FullDebugMode</li>
+            <li>Nexus Quality Suite - CodeWatch</li>
+            <li>Deleaker</li>
+          </ul>
+          </small>
+
+        </section>
+      </section>
+
+
+      <section>
+        <img src="img\DELPHISPLASHCE.jpg" width=400px" alt="Delphi CE">
+        <small>
+          <p>All code samples compile in the Delphi Community Edition</p>
+          <p>Identical to the Professional Edition with some licensing restrictions</p>
+        </small>
+      </section>
+
+      <section>
+        <h2>Demo 1</h2>
+        <p>Create some servers</p>
+        <ul>
+          <li>TCPIP server</li>
+          <li>HTTP server (get and post)</li>
+          <li>WebBroker server</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>Problem: Network traffic</h2>
+        <p>Anything sent across the network is vulnerable</p>
+        <ul>
+          <li>Packet Sniffers</li>
+          <li>WireShark, Fiddler, etc...</li>
+          <li>Magenta Systems (Delphi components)</li>
+        </ul>
+      </section>
+      
+      <section>
+        <h2>Demo 2</h2>
+        <p>Show network traffic</p>
+        <ul>
+          <li>Loopback addresses behave differently</li>
+          - localhost and 127.0.0.1
+          <li>Find local IP address - ipconfig</li>
+          <li>hosts file</li>
+            - C:\Windows\System32\drivers\etc\hosts
+        </ul>
+      </section>
+
+      <section>
+        <h2>Solution: Encryption <small>duh...</small></h2>
+        <p>SSL - universally accepted for network security</p>
+        <small>
+        <ul>
+          <li>Founded in 1998</li>
+          <li>Uses public key or asymetric cryptography</li>
+          <li>Also used for digital signatures</li>
+          <li>Slow, so it's used for the initial handshake and to securely exchange a faster symetric key that is used for the rest of the communication</li>
+        </ul>
+        </small>
+      </section>
+
+      <section>
+      <section>
+        <h2>OpenSSL</h2>
+        <p>Open source implementation of SSL</p>
+        <small>
+        <ul>
+          <li>Drivers and tools to generate and convert keys</li>
+          <li>Available on most platforms</li><br>
+          <li>Free OpenSSL Cookbook (https://www.feistyduck.com/books/openssl-cookbook)</li>
+        </ul>
+        </small>
+      </section>
+
+      <section>
+        <h2>OpenSSL</h2>
+        <p>Generating keys</p>
+        <p>Simple, right?</p>
+        <small>
+        
+        <pre><code data-trim data-noescape>
+:: Set default configuration file for OpenSSL
+SET OPENSSL_CONF=c:\code\openssl\openssl.cfg
+        </code></pre>
+
+        <pre><code data-trim data-noescape>
+:: Generate account key (usually only done once)
+openssl genrsa -out account_key.pem 4096
+        </code></pre>
+
+        <pre><code data-trim data-noescape>
+:: create self-signed certificate
+openssl req -config SelfSigned.cfg -new -x509 -sha256 -newkey rsa:2048 -nodes -keyout SelfSigned_key.pem -days 36500 -out SelfSigned_crt.pem
+
+:: print details from self-signed certificate
+openssl x509 -in SelfSigned_crt.pem -text -noout
+        </code></pre>
+
+        <pre><code data-trim data-noescape>
+:: create code signing request (CSR)
+openssl req -config example-com.conf -new -sha256 -newkey rsa:2048 -nodes -keyout example-com.key.pem -days 365 -out example-com.req.pem
+
+:: print details from CSR
+openssl req -in example-com.req.pem -text -noout
+        </code></pre>
+      
+        </small>
+      </section>
+      </section>
+
+
+
+      <section>
+        <h2>Demo 3</h2>
+        <p>Secure our servers</p>
+        <ul>
+          <li>Create a domain key and certificate</li>
+          <li>Deploy driver DLLs</li>
+          <li>Configure servers</li>
+        </ul>
+      </section>
+
+
+      <section>
+        <h2>Certificate Authority (CA)</h2>
+        <p>The second half of internet security</p>
+        <small>
+          <p></p>
+        <ul>
+          <li>Trusted third party who vouches that a certificate is intended for the domain in question</li>
+          <li>Prevent man-in-the-middle attacks</li>
+          <li>Types of verification DV OV EV</li>
+        </ul>
+        </small>
+      </section>
+
+
+      <section>
+        <h2>How to get a trusted connection in your browser</h2>
+        <ul>
+          <li>Install self-signed certificate in browser</li>
+          <li>Buy a certificate from a CA</li>
+          <li>CloudFlare</li>
+          <li>Caddy Server</li>
+          <li>Let's Encrypt (https://letsencrypt.org)</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>Let's Encrypt</h2>
+        <p>Free certificate authority</p>
+        <small>
+        <ul>
+          <li>Founded in 2013</li>
+          <li>Backed by ~100 companies including EFF, Chrome, Mozilla and Cisco</li>
+          <li>Part of a long-standing effort by EFF and others to "encrypt the web"</li>
+          <li>90 day lifetime on certificates</li>
+          - limit impact if a key is stolen or misused<br>
+          - Encourage automation
+          <li>Dozens of clients (https://letsencrypt.org/docs/client-options)</li>
+          <li>Watch out for registration limits - test in staging area</li>
+        </ul>
+
+          <p>Example: Crpte::LE from ZeroSSL</p>
+        <pre><code data-trim data-noescape>
+:: Create Certificate
+le64.exe --key account.key --csr mydomain.csr --csr-key mydomain.key --crt mydomain.crt 
+  --domains "www.mydomain.com,domain.com" --path /var/www/html/.well-known/acme-challenge/ 
+  --generate-missing --unlink --live
+
+:: Renew Certificate
+le.pl --key account.key --csr mydomain.csr --csr-key mydomain.key --crt mydomain.crt 
+  --domains "www.mydomain.com,domain.com" --path /var/www/html/.well-known/acme-challenge/ 
+  --generate-missing --unlink --renew 10 --issue-code 100 --live 
+        </code></pre>
+
+        </small>
+      </section>
+
+
+      <section>
+        <h3>But what if I want it to be easy?</h3>
+        <p>I've got things to do...</p><br>
+        <p>ZeroSSL does some hand-holding</p>
+        <ul>
+          <li>Self-Signed Certificate Generator</li>
+          <li>CSR Generator</li>
+          <li>Free SSL Certificate Wizard</li>
+          <li>Windows client for automation</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>Demo 4</h2>
+        <p>Create a CA signed certificate</p>
+        <ul>
+          <li>http verification</li>
+          <li>dns verification</li>
+          <li>tdug.co.nf was a bust - Go to Plan B</li>
+        </ul>
+      </section>
+
+
+      <section>
+        <h1>Questions</h1>
+      </section>
+
+
+    </div>
+  </div>
+
+  <script src="lib/js/head.min.js"></script>
+  <script src="js/reveal.js"></script>
+
+  <script>
+
+      // More info https://github.com/hakimel/reveal.js#configuration
+      Reveal.initialize({
+          controls: true,
+          progress: true,
+          history: true,
+          center: true,
+
+          transition: 'slide', // none/fade/slide/convex/concave/zoom
+
+          // More info https://github.com/hakimel/reveal.js#dependencies
+          dependencies: [
+              { src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+              { src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+              { src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+              { src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+              { src: 'plugin/search/search.js', async: true },
+              { src: 'plugin/zoom-js/zoom.js', async: true },
+              { src: 'plugin/notes/notes.js', async: true }
+          ]
+      });
+
+  </script>
+
+</body>
+</html>
