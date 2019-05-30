@@ -1,0 +1,60 @@
+﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <PropertyGroup>
+        <ProjectGuid>{1CC87D8F-6B03-41CD-B876-E67DFCCB7D74}</ProjectGuid>
+    </PropertyGroup>
+    <ItemGroup>
+        <Projects Include="Server\Server.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="WebServer\WebServer.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="WebServerSSL\WebServerSSL.dproj">
+            <Dependencies/>
+        </Projects>
+    </ItemGroup>
+    <ProjectExtensions>
+        <Borland.Personality>Default.Personality.12</Borland.Personality>
+        <Borland.ProjectType/>
+        <BorlandProject>
+            <Default.Personality/>
+        </BorlandProject>
+    </ProjectExtensions>
+    <Target Name="Server">
+        <MSBuild Projects="Server\Server.dproj"/>
+    </Target>
+    <Target Name="Server:Clean">
+        <MSBuild Projects="Server\Server.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="Server:Make">
+        <MSBuild Projects="Server\Server.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="WebServer">
+        <MSBuild Projects="WebServer\WebServer.dproj"/>
+    </Target>
+    <Target Name="WebServer:Clean">
+        <MSBuild Projects="WebServer\WebServer.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="WebServer:Make">
+        <MSBuild Projects="WebServer\WebServer.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="WebServerSSL">
+        <MSBuild Projects="WebServerSSL\WebServerSSL.dproj"/>
+    </Target>
+    <Target Name="WebServerSSL:Clean">
+        <MSBuild Projects="WebServerSSL\WebServerSSL.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="WebServerSSL:Make">
+        <MSBuild Projects="WebServerSSL\WebServerSSL.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="Build">
+        <CallTarget Targets="Server;WebServer;WebServerSSL"/>
+    </Target>
+    <Target Name="Clean">
+        <CallTarget Targets="Server:Clean;WebServer:Clean;WebServerSSL:Clean"/>
+    </Target>
+    <Target Name="Make">
+        <CallTarget Targets="Server:Make;WebServer:Make;WebServerSSL:Make"/>
+    </Target>
+    <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
+</Project>
