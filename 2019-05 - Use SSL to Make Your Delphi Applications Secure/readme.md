@@ -36,6 +36,10 @@ However, Indy doesn't support OpenSSL 1.1.x yet, which has interface changes. It
 * [Nexus Quality Suite - CodeWatch](https://www.nexusdb.com/support/index.php?q=codewatchfeatures)
 * [Deleaker](https://www.deleaker.com)
 ---
+#### Inexpensive CA certificates
+* [GoGetSSL](https://www.gogetssl.com/dv-ssl/domain-ssl/)
+* [SSLS](https://www.ssls.com/)
+---
 * [OpenSSL](https://www.openssl.org/)
 * [OpenSSL Binaries](https://www.openssl.org/community/binaries.html)
 * [Understanding and generating OpenSSL config files](https://www.phcomp.co.uk/Tutorials/Web-Technologies/Understanding-and-generating-OpenSSL.cnf-files.html)
