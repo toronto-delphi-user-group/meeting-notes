@@ -18,4 +18,5 @@ We will demonstrate how to create 3D applications, combine 2D and 3D elements in
 
 * [Planet Textures](https://www.solarsystemscope.com/textures)
 * [NASA's Visibe Earth textures](https://visibleearth.nasa.gov/view.php?id=74518)
+* [Free 3D models (Google to the rescue)](https://www.google.com/search?q=free+3d+models)
 * [3D design software (many with free options)](https://all3dp.com/1/best-free-3d-modeling-software-3d-cad-3d-design-software)
