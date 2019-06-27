@@ -1,0 +1,304 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+
+  <title>TDUG - FireMonkey 3D</title>
+
+  <meta name="description" content="All Delphi all the time">
+  <meta name="author" content="Bruce McGee">
+
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+  <link rel="stylesheet" href="css/reveal.css">
+  <link rel="stylesheet" href="css/theme/black.css" id="theme">
+
+  <!-- Theme used for syntax highlighting of code -->
+  <link rel="stylesheet" href="lib/css/zenburn.css">
+
+  <!-- Printing and PDF exports -->
+  <script>
+    var link = document.createElement( 'link' );
+    link.rel = 'stylesheet';
+    link.type = 'text/css';
+    link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+    document.getElementsByTagName( 'head' )[0].appendChild( link );
+  </script>
+
+  <!--[if lt IE 9]>
+  <script src="lib/js/html5shiv.js"></script>
+  <![endif]-->
+</head>
+
+<body>
+  <div class="reveal">
+
+    <!-- Any section element inside of this container is displayed as a slide -->
+    <div class="slides">
+
+      <section>
+        <h1>TDUG</h1>
+        <h3>Introduction to FireMonkey 3D</h3>
+      </section>
+
+
+      <section>
+      <section>
+        <h2>What is FireMonkey?</h2>
+        <small>
+        <ul>
+          <li>Embarcadero's cross-platform UI framework</li>
+          <li>Started as VGScene written by Eugene Kryukov (KSDev) - Next generation vector-based UI</li>
+          <li>Purchased by Embarcadero in 2011 and included in Delphi XE2</li>
+          <br>
+          <li>Cross-platform</li>
+              - Windows, Mac OSX, iOS, Android<br>
+              - Linux - Third party FMX Linux from KSDev. Yes, that KSDev.<br>
+              * FMX Linux is bundled with Delphi Enterprise and above as of June 25th (yesterday)<br>
+          <br>
+          <li>Hardware accelerated graphics where available</li>
+              - Windows - DirectX (falls back to GDI+)<br>
+              - Mac OSX - OpenGL<br>
+              - iOS/Android - OpenGL ES (subset of OpenGL)<br>
+              - Linux - OpenGL (3D and GPU effects) and Cairo (2D)
+        </ul>
+        </small>
+      </section>
+
+      <section>
+        <h2>Relevant Differences vs the VCL</h2>
+        <small>
+        <ul>
+          <li>Visual controls can act as containers (be careful)</li>
+          <li>Properties like position are floating point instead of integer</li>
+          <li>Many properties can be animated (indicated with a film-strip icon)</li>
+        </ul>
+        </small>
+      </section>
+      </section>
+
+
+      <section>
+        <h2>Demo: Simplest 3D App</h2>
+        <small>
+        <ul>
+          <li>Create a new Multi-Device Application - 3D Application</li>
+          <li>Set the form colour to Black</li>
+          <li>Add a TDummy component (container)</li>
+          <li>Add a TTextureMaterialSource (skin)</li>
+              - Click Texture and Edit to add an image
+          <li>Select Dummy1 and add a TSphere</li>
+            - Resize sphere to 10 x 10 x 10<br>
+            - Set MaterialSource to TextureMaterialSource1<br>
+            <br>
+          <li>Select Sphere1 and add a TFloatAnimation (for pizzazz)</li>
+              - Set Duration to 10 (seconds)<br>
+              - Set Loop to True<br>
+              - Set PropertyName to RotationAngle.Y<br>
+              - Set StartValue to 360 (Earth rotates counter-clockwise)<br>
+              - Set Enabled to True
+        </ul>
+        </small>
+      </section>
+
+
+      <section>
+      <section>
+        <h2>Mixing 2D and 3D Elements</h2>
+      </section>
+
+      <section>
+        <p>Add 3D to a 2D application</p>
+        <small>
+        <ul>
+          <li>Create a new Multi-Device Application - Blank Application</li>
+          <li>Add controls to the form (button, edit, etc)</li>
+          <li>Add a TViewport3D component - Equivalent of TForm3D</li>
+          <li>Select Viewport3D1 and add a TDummy component</li>
+          <br>
+          <li>Do 3D stuff...</li>
+        </ul>
+        </small>
+      </section>
+
+      <section>
+        <p>Add 2D to a 3D application</p>
+        <small>
+        <ul>
+          <li>Create a new Multi-Device Application - 3D Application</li>
+          <li>Select form add a TDummy component</li>
+          <li>Select form and add a TLayer3D</li>
+          <li>Select Layer3D1</li>
+              - Set Projection property to Screen<br>
+              - Add controls to Layer3D1 (button, edit, etc)<br>
+              - Set alignment<br>
+          <br>
+          <li>Do 3D stuff...</li>
+        </ul>
+        </small>
+      </section>
+      </section>
+
+      
+      <section>
+        <h2>Multiple 3D Objects</h2>
+        <ul>
+        </ul>
+      </section>
+
+
+      <section>
+      <section>
+        <h2>3D Models</h2>
+        <p>FireMonkey supports three 3D model formats</p>
+        <p>All three are open, plain-text formats</p>
+        <small>
+        <ul>
+          <li>.ase - ASCII Scene Exporter (native to 3D Studio Max)</li>
+          <li>.dae - COLLADA (intended to be an intermediate format)</li>
+          <li>.obj - Wavefront (Advanced Visualizer animation package)</li>
+          <br>
+          <li>Lots of free and inexpensive 3D models available</li>
+          <br>
+          <li>Lots of free and inexpensive 3D design software available</li>
+        </ul>
+        </small>
+      </section>
+
+      <section>
+        <h2>Some Gotchas</h2>
+        <small>
+        <ul>
+          <li>Not all software and models support the same formats as FireMonkey</li>
+              - Work-around - 3D Object Converter (supports 786 3D file formats)<br>
+          <br>
+          <li>Many 3D models use Targa (.tga) or DirectDraw Surface (.dds) images</li>
+              - These aren't supported natively in Delphi<br>
+              - Work-around - Convert images and edit 3D model file<br>
+          <br>
+          <li>When loaded at design-time, an explicit TLight component is required</li>
+          <br>
+          <li>When loading 3D models in code, add the following to the uses clause:</li>
+              - FMX.ASE.Importer, FMX.DAE.Importer, FMX.OBJ.Importer<br>
+          <br>
+          <li>3D models load slowly</li>
+              - Work-around - Load models at design-time<br>
+          <br>
+          <li>FireMonkey is not a complete game engine - geared more toward business</li>
+              - Enterprise applications? - Challenge accepted!<br>
+        </ul>
+        </small>
+      </section>
+      </section>
+
+
+      <section>
+        <h2>OnRender Event</h2>
+        <small>
+        <ul>
+          <li>Similar to the OnPaint event in VCL controls that support owner drawing</li>
+          <li>TForm3D, TDummy, Shapes and Meshes (anything descended from TControl3D)</li>
+          <li>TViewPort3D does not have an OnRender event</li><br>
+          <li>TContext and TContextHelper have methods to draw primitives in the current 3D Context</li>
+              - This is how the TStrokeCube works - a TControl3D with an overridden Render method
+        </ul>
+        <pre><code data-trim data-noescape>
+  TContext3D = class abstract(TInterfacedPersistent, IFreeNotification)
+  ...        
+    procedure DrawTriangles( ...
+    procedure DrawLines( ...
+    procedure DrawPoints( ...
+    procedure DrawPrimitives( ...
+  ...
+        </code></pre>
+  
+        <pre><code data-trim data-noescape>
+  TContextHelper = class helper for TContext3D
+  public
+    { helper }
+    procedure FillCube( ...
+    procedure DrawLine( ...
+    procedure DrawRect( ...
+    procedure DrawCube( ...
+    procedure FillPolygon( ...
+  end;
+        </code></pre>
+        </small>
+      </section>
+
+
+      <section>
+        <h2>Custom Meshes</h2>
+        <small>
+        <p>It's all about the triangles...</p>
+        <ul>
+        <li>Drop an empty TMesh into a project</li>
+        <li>Define an array of points in 3D space</li>
+        <li>Define triangle vertexes using the indexes of these points</li>
+        <br>
+        </ul>
+        <p>Two ways to do this</p>
+        <ul>
+        <li>Use the string TMesh.Data properties</li>
+            - Less code<br>
+            - Can be done at design time<br>
+            - Slow to parse<br>
+            <br>
+        <li>Use TMesh.Data buffers directly</li>
+            - Much faster with large datasets<br>
+            - Must be done at run time<br>
+            - More verbose code<br>
+            <br>
+       
+        </ul>
+        </small>
+      </section>
+
+
+      <section>
+        <h2>Notes and Source Code</h2>
+        <small><p>https://github.com/toronto-delphi-user-group/meeting-notes</p></small>
+      </section>
+
+      <section>
+        <h1>Questions</h1>
+      </section>
+
+
+    </div>
+  </div>
+
+  <script src="lib/js/head.min.js"></script>
+  <script src="js/reveal.js"></script>
+
+  <script>
+
+      // More info https://github.com/hakimel/reveal.js#configuration
+      Reveal.initialize({
+          controls: true,
+          progress: true,
+          history: true,
+          center: true,
+
+          transition: 'slide', // none/fade/slide/convex/concave/zoom
+
+          // More info https://github.com/hakimel/reveal.js#dependencies
+          dependencies: [
+              { src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+              { src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+              { src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+              { src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+              { src: 'plugin/search/search.js', async: true },
+              { src: 'plugin/zoom-js/zoom.js', async: true },
+              { src: 'plugin/notes/notes.js', async: true }
+          ]
+      });
+
+  </script>
+
+</body>
+</html>
