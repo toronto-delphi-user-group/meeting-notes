@@ -1,0 +1,43 @@
+object Form1: TForm1
+  Left = 0
+  Top = 0
+  Caption = 'Form1'
+  ClientHeight = 480
+  ClientWidth = 800
+  FormFactor.Width = 320
+  FormFactor.Height = 480
+  FormFactor.Devices = [Desktop]
+  OnCreate = Form3DCreate
+  OnMouseDown = Form3DMouseDown
+  OnMouseMove = Form3DMouseMove
+  DesignerMasterStyle = 0
+  object Dummy1: TDummy
+    Width = 1.000000000000000000
+    Height = 1.000000000000000000
+    Depth = 1.000000000000000000
+    object Grid3D1: TGrid3D
+      Marks = 2.000000000000000000
+      Frequency = 1.000000000000000000
+      LineColor = x50505050
+      RotationAngle.X = 90.000000000000000000
+      Width = 30.000000000000000000
+      Height = 30.000000000000000000
+      Depth = 0.001000000047497451
+      HitTest = False
+      Quanternion = '(0.70710676908493,0,0,0.70710676908493)'
+    end
+    object Mesh1: TMesh
+      Width = 8.000000000000000000
+      Height = 8.000000000000000000
+      Depth = 8.000000000000000000
+      HitTest = False
+      TwoSide = True
+      MaterialSource = ColorMaterialSource1
+    end
+  end
+  object ColorMaterialSource1: TColorMaterialSource
+    Color = claSlateblue
+    Left = 304
+    Top = 224
+  end
+end

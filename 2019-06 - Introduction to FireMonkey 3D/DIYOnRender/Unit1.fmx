@@ -1,0 +1,30 @@
+object Form1: TForm1
+  Left = 0
+  Top = 0
+  Caption = 'Form1'
+  ClientHeight = 594
+  ClientWidth = 849
+  FormFactor.Width = 320
+  FormFactor.Height = 480
+  FormFactor.Devices = [Desktop]
+  OnMouseDown = Form3DMouseDown
+  OnMouseMove = Form3DMouseMove
+  DesignerMasterStyle = 0
+  object Dummy1: TDummy
+    Width = 10.000000000000000000
+    Height = 10.000000000000000000
+    Depth = 10.000000000000000000
+    OnRender = Dummy1Render
+    object Grid3D1: TGrid3D
+      Marks = 2.000000000000000000
+      Frequency = 1.000000000000000000
+      LineColor = x50505050
+      RotationAngle.X = 90.000000000000000000
+      Width = 20.000000000000000000
+      Height = 20.000000000000000000
+      Depth = 0.001000000047497451
+      HitTest = False
+      Quanternion = '(0.70710676908493,0,0,0.70710676908493)'
+    end
+  end
+end
