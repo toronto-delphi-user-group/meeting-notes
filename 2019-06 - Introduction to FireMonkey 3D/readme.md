@@ -5,6 +5,14 @@ FireMonkey is Embarcadero's cross-platform UI framework. On top of the regular U
 We will demonstrate how to create 3D applications, combine 2D and 3D elements in the UI and how to create and use 3D objects.
 
 ---
+
+### Answers to some questions asked at the meeting
+
+**Q**: Can you click on a 3d shape and know where it was clicked?
+
+**A**: Yes. Mouse events on TControl3D provides RayPos and RayDir vectors. You can use RayCastIntersect to find where that mouse operation intersects with any given TControl3D. A new sample application named ClickShape was added that demonstrate this.
+
+---
 ### Resources:
 * [FireMonkey Docwiki page](http://docwiki.embarcadero.com/RADStudio/en/FireMonkey)
 * [FMX Linux](https://www.fmxlinux.com)
