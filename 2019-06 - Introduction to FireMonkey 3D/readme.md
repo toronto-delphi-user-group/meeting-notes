@@ -12,6 +12,11 @@ We will demonstrate how to create 3D applications, combine 2D and 3D elements in
 
 **A**: Yes. Mouse events on TControl3D provides RayPos and RayDir vectors. You can use RayCastIntersect to find where that mouse operation intersects with any given TControl3D. A new sample application named ClickShape was added that demonstrate this.
 
+
+**Q**: In TModel3D, can the MeshCollection property actually hold multiple meshes?
+
+**A**: Yes. Some models include multiple meshes and each mesh can have its own material/texture. The FireMonkey model in the Assets folder includes two meshes.
+
 ---
 ### Resources:
 * [FireMonkey Docwiki page](http://docwiki.embarcadero.com/RADStudio/en/FireMonkey)
