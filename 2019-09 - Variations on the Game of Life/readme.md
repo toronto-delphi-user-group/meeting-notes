@@ -24,3 +24,5 @@ I don't know how philosophical we'll get, but we will look at the theory behind 
 
 [Game of Life](https://en.wikipedia.org/wiki/Conway%27s_Game_of_Life)
 [Life-like cellular automata](https://en.wikipedia.org/wiki/Life-like_cellular_automaton)
+
+[3D Life](https://en.wikipedia.org/wiki/3D_Life)
