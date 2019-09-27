@@ -18,13 +18,17 @@ I don't know how philosophical we'll get, but we will look at the theory behind 
 
 ### Resources:
 [Cellular automoton - Wikipedia](https://en.wikipedia.org/wiki/Cellular_automaton)
+
 [Cellular automoton - Wolfram Mathworld](http://mathworld.wolfram.com/CellularAutomaton.html)
 
 [Elementary CA](http://mathworld.wolfram.com/ElementaryCellularAutomaton.html)
+
 [Stephen Wolfram - A New Kind of Science](https://www.youtube.com/watch?v=_eC14GonZnU)
 
 [Game of Life](https://en.wikipedia.org/wiki/Conway%27s_Game_of_Life)
+
 [Life-like cellular automata](https://en.wikipedia.org/wiki/Life-like_cellular_automaton)
+
 [John Conway on Numberphile](https://www.youtube.com/watch?v=E8kUJL04ELA&list=PLt5AfwLFPxWIL8XA1npoNAHseS-j1y-7V)
 
 [3D Life](https://en.wikipedia.org/wiki/3D_Life)
