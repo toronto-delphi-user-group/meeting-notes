@@ -29,6 +29,8 @@ I don't know how philosophical we'll get, but we will look at the theory behind 
 
 [Life-like cellular automata](https://en.wikipedia.org/wiki/Life-like_cellular_automaton)
 
+[More rules for Life](http://psoup.math.wisc.edu/mcell/rullex_life.html
+
 [John Conway on Numberphile](https://www.youtube.com/watch?v=E8kUJL04ELA&list=PLt5AfwLFPxWIL8XA1npoNAHseS-j1y-7V)
 
 [3D Life](https://en.wikipedia.org/wiki/3D_Life)
