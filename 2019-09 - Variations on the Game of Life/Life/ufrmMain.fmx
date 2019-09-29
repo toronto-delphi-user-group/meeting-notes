@@ -1,0 +1,132 @@
+object frmMain: TfrmMain
+  Left = 0
+  Top = 0
+  Caption = 'Game of Life'
+  ClientHeight = 480
+  ClientWidth = 843
+  FormFactor.Width = 320
+  FormFactor.Height = 480
+  FormFactor.Devices = [Desktop]
+  OnCreate = FormCreate
+  OnDestroy = FormDestroy
+  DesignerMasterStyle = 0
+  object LayoutLeft: TLayout
+    Align = Left
+    Size.Width = 50.000000000000000000
+    Size.Height = 480.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 1
+    object tbScale: TTrackBar
+      CanParentFocus = True
+      Frequency = 1.000000000000000000
+      Max = 10.000000000000000000
+      Min = 1.000000000000000000
+      Orientation = Vertical
+      Position.X = 16.000000000000000000
+      Position.Y = 16.000000000000000000
+      RotationAngle = 180.000000000000000000
+      Size.Width = 20.000000000000000000
+      Size.Height = 353.000000000000000000
+      Size.PlatformDefault = False
+      TabOrder = 0
+      Value = 5.000000000000000000
+      OnChange = tbScaleChange
+    end
+  end
+  object LayoutClient: TLayout
+    Align = Client
+    Size.Width = 793.000000000000000000
+    Size.Height = 480.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 0
+    object LayoutBottom: TLayout
+      Align = Bottom
+      Position.Y = 433.000000000000000000
+      Size.Width = 793.000000000000000000
+      Size.Height = 47.000000000000000000
+      Size.PlatformDefault = False
+      TabOrder = 1
+      object btnStep: TButton
+        Position.X = 528.000000000000000000
+        Position.Y = 16.000000000000000000
+        RepeatClick = True
+        Size.Width = 80.000000000000000000
+        Size.Height = 22.000000000000000000
+        Size.PlatformDefault = False
+        TabOrder = 4
+        Text = 'Step'
+        OnClick = btnStepClick
+      end
+      object btnRandom: TButton
+        Position.X = 424.000000000000000000
+        Position.Y = 16.000000000000000000
+        Size.Width = 80.000000000000000000
+        Size.Height = 22.000000000000000000
+        Size.PlatformDefault = False
+        TabOrder = 3
+        Text = 'Random'
+        OnClick = btnRandomClick
+      end
+      object btnRunPause: TButton
+        Position.X = 616.000000000000000000
+        Position.Y = 16.000000000000000000
+        Size.Width = 80.000000000000000000
+        Size.Height = 22.000000000000000000
+        Size.PlatformDefault = False
+        TabOrder = 5
+        Text = 'Run'
+        OnClick = btnRunPauseClick
+      end
+      object lblRules: TLabel
+        AutoSize = True
+        StyledSettings = [Family, FontColor]
+        Position.X = 16.000000000000000000
+        Position.Y = 6.000000000000000000
+        Size.Width = 81.000000000000000000
+        Size.Height = 35.000000000000000000
+        Size.PlatformDefault = False
+        TextSettings.Font.Size = 26.000000000000000000
+        TextSettings.Font.StyleExt = {00070000000000000004000000}
+        Text = 'Rules'
+        TabOrder = 0
+      end
+      object edtRules: TEdit
+        Touch.InteractiveGestures = [LongTap, DoubleTap]
+        TabOrder = 1
+        TextSettings.Font.Size = 16.000000000000000000
+        TextSettings.Font.StyleExt = {00070000000000000004000000}
+        Position.X = 96.000000000000000000
+        Position.Y = 8.000000000000000000
+        Size.Width = 217.000000000000000000
+        Size.Height = 32.000000000000000000
+        Size.PlatformDefault = False
+        StyledSettings = [Family, FontColor]
+        OnValidate = edtRulesValidate
+      end
+      object btnClear: TButton
+        Position.X = 336.000000000000000000
+        Position.Y = 16.000000000000000000
+        TabOrder = 2
+        Text = 'Clear'
+        OnClick = btnClearClick
+      end
+    end
+    object pbGame: TPaintBox
+      Align = Client
+      Size.Width = 793.000000000000000000
+      Size.Height = 433.000000000000000000
+      Size.PlatformDefault = False
+      OnMouseDown = pbGameMouseDown
+      OnMouseMove = pbGameMouseMove
+      OnPaint = pbGamePaint
+      OnResized = pbGameResized
+    end
+  end
+  object Timer1: TTimer
+    Enabled = False
+    Interval = 50
+    OnTimer = Timer1Timer
+    Left = 8
+    Top = 392
+  end
+end

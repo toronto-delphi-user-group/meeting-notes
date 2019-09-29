@@ -1,0 +1,142 @@
+object frmMain: TfrmMain
+  Left = 0
+  Top = 0
+  Caption = 'Game of Life 3D'
+  ClientHeight = 480
+  ClientWidth = 833
+  FormFactor.Width = 320
+  FormFactor.Height = 480
+  FormFactor.Devices = [Desktop]
+  OnCreate = FormCreate
+  OnDestroy = FormDestroy
+  DesignerMasterStyle = 0
+  object Viewport3D1: TViewport3D
+    Align = Client
+    Color = claBlack
+    Size.Width = 783.000000000000000000
+    Size.Height = 433.000000000000000000
+    Size.PlatformDefault = False
+    OnMouseDown = Viewport3D1MouseDown
+    OnMouseMove = Viewport3D1MouseMove
+    object Dummy1: TDummy
+      Position.Y = 10.000000000000000000
+      Position.Z = 35.000000000000000000
+      Width = 1.000000000000000000
+      Height = 1.000000000000000000
+      Depth = 1.000000000000000000
+      OnRender = Dummy1Render
+      object Grid3D1: TGrid3D
+        Marks = 4.000000000000000000
+        Frequency = 1.000000000000000000
+        LineColor = x50505050
+        RotationAngle.X = 90.000000000000000000
+        Width = 50.000000000000000000
+        Height = 50.000000000000000000
+        Depth = 0.001000000047497451
+        HitTest = False
+        Quanternion = '(0.70710676908493,0,0,0.70710676908493)'
+      end
+    end
+  end
+  object LayoutLeft: TLayout
+    Align = Left
+    Size.Width = 50.000000000000000000
+    Size.Height = 433.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 2
+    object tbScale: TTrackBar
+      CanParentFocus = True
+      Frequency = 1.000000000000000000
+      Max = 35.000000000000000000
+      Min = 10.000000000000000000
+      Orientation = Vertical
+      Position.X = 16.000000000000000000
+      Position.Y = 16.000000000000000000
+      Size.Width = 20.000000000000000000
+      Size.Height = 353.000000000000000000
+      Size.PlatformDefault = False
+      TabOrder = 0
+      Value = 20.000000000000000000
+      OnChange = tbScaleChange
+    end
+  end
+  object LayoutBottom: TLayout
+    Align = Bottom
+    Position.Y = 433.000000000000000000
+    Size.Width = 833.000000000000000000
+    Size.Height = 47.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 1
+    object btnStep: TButton
+      Position.X = 424.000000000000000000
+      Position.Y = 14.000000000000000000
+      RepeatClick = True
+      Size.Width = 80.000000000000000000
+      Size.Height = 22.000000000000000000
+      Size.PlatformDefault = False
+      TabOrder = 3
+      Text = 'Step'
+      OnClick = btnStepClick
+    end
+    object btnRandom: TButton
+      Position.X = 336.000000000000000000
+      Position.Y = 14.000000000000000000
+      Size.Width = 80.000000000000000000
+      Size.Height = 22.000000000000000000
+      Size.PlatformDefault = False
+      TabOrder = 2
+      Text = 'Random'
+      OnClick = btnRandomClick
+    end
+    object btnRunPause: TButton
+      Position.X = 512.000000000000000000
+      Position.Y = 14.000000000000000000
+      Size.Width = 80.000000000000000000
+      Size.Height = 22.000000000000000000
+      Size.PlatformDefault = False
+      TabOrder = 4
+      Text = 'Run'
+      OnClick = btnRunPauseClick
+    end
+    object lblRules: TLabel
+      AutoSize = True
+      StyledSettings = [Family, FontColor]
+      Position.X = 16.000000000000000000
+      Position.Y = 6.000000000000000000
+      Size.Width = 81.000000000000000000
+      Size.Height = 35.000000000000000000
+      Size.PlatformDefault = False
+      TextSettings.Font.Size = 26.000000000000000000
+      TextSettings.Font.StyleExt = {00070000000000000004000000}
+      Text = 'Rules'
+      TabOrder = 0
+    end
+    object edtRules: TEdit
+      Touch.InteractiveGestures = [LongTap, DoubleTap]
+      TabOrder = 1
+      TextSettings.Font.Size = 16.000000000000000000
+      TextSettings.Font.StyleExt = {00070000000000000004000000}
+      Position.X = 96.000000000000000000
+      Position.Y = 8.000000000000000000
+      Size.Width = 217.000000000000000000
+      Size.Height = 30.000000000000000000
+      Size.PlatformDefault = False
+      StyledSettings = [Family, FontColor]
+      OnValidate = edtRulesValidate
+    end
+    object btnResetCamera: TButton
+      Position.X = 608.000000000000000000
+      Position.Y = 14.000000000000000000
+      TabOrder = 5
+      Text = 'Reset Camera'
+      OnClick = btnResetCameraClick
+    end
+  end
+  object Timer1: TTimer
+    Enabled = False
+    Interval = 50
+    OnTimer = Timer1Timer
+    Left = 8
+    Top = 392
+  end
+end
