@@ -1,0 +1,330 @@
+object frmMain: TfrmMain
+  Left = 0
+  Top = 0
+  Caption = 'Shapes'
+  ClientHeight = 763
+  ClientWidth = 1195
+  FormFactor.Width = 320
+  FormFactor.Height = 480
+  FormFactor.Devices = [Desktop]
+  OnCreate = FormCreate
+  OnDestroy = FormDestroy
+  DesignerMasterStyle = 0
+  object ImageControl1: TImageControl
+    Position.X = 8.000000000000000000
+    Position.Y = 48.000000000000000000
+    Size.Width = 537.000000000000000000
+    Size.Height = 241.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 17
+  end
+  object Viewport3D1: TViewport3D
+    Color = claBlack
+    Position.X = 8.000000000000000000
+    Position.Y = 376.000000000000000000
+    Size.Width = 489.000000000000000000
+    Size.Height = 377.000000000000000000
+    Size.PlatformDefault = False
+    object Dummy1: TDummy
+      Width = 1.000000000000000000
+      Height = 1.000000000000000000
+      Depth = 1.000000000000000000
+      object ProxyObject1: TProxyObject
+        SourceObject = Sphere1
+        Width = 10.000000000000000000
+        Height = 10.000000000000000000
+        Depth = 10.000000000000000000
+        Opacity = 0.250000000000000000
+        HitTest = False
+        OnRender = ProxyObject1Render
+      end
+      object Sphere1: TSphere
+        Width = 1.000000000000000000
+        Height = 1.000000000000000000
+        Depth = 1.000000000000000000
+        MaterialSource = TextureMaterialSource1
+      end
+      object Cone1: TCone
+        Width = 1.000000000000000000
+        Height = 1.000000000000000000
+        Depth = 1.000000000000000000
+        MaterialSource = TextureMaterialSource1
+      end
+      object Cylinder1: TCylinder
+        Width = 1.000000000000000000
+        Height = 1.000000000000000000
+        Depth = 1.000000000000000000
+        Visible = False
+        MaterialSource = TextureMaterialSource1
+      end
+      object Cube1: TCube
+        Width = 1.000000000000000000
+        Height = 1.000000000000000000
+        Depth = 1.000000000000000000
+        MaterialSource = TextureMaterialSource1
+      end
+      object Cube2: TCube
+        Width = 1.000000000000000000
+        Height = 1.000000000000000000
+        Depth = 1.000000000000000000
+        MaterialSource = TextureMaterialSource1
+      end
+    end
+  end
+  object Label1: TLabel
+    StyledSettings = [Family, FontColor]
+    Position.X = 16.000000000000000000
+    Position.Y = 8.000000000000000000
+    Size.Width = 97.000000000000000000
+    Size.Height = 32.000000000000000000
+    Size.PlatformDefault = False
+    TextSettings.Font.Size = 24.000000000000000000
+    TextSettings.Font.StyleExt = {00070000000000000004000000}
+    Text = 'Texture'
+    TabOrder = 18
+  end
+  object Label2: TLabel
+    StyledSettings = [Family, FontColor]
+    Position.X = 16.000000000000000000
+    Position.Y = 320.000000000000000000
+    Size.Width = 89.000000000000000000
+    Size.Height = 32.000000000000000000
+    Size.PlatformDefault = False
+    TextSettings.Font.Size = 24.000000000000000000
+    TextSettings.Font.StyleExt = {00070000000000000004000000}
+    Text = 'Shape'
+    TabOrder = 19
+  end
+  object rbTextureMap: TRadioButton
+    GroupName = 'texture'
+    IsChecked = True
+    Position.X = 120.000000000000000000
+    Position.Y = 16.000000000000000000
+    Size.Width = 57.000000000000000000
+    Size.Height = 19.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 0
+    Text = 'Map'
+    OnChange = rbTextureChange
+  end
+  object rbTextureCubeMap: TRadioButton
+    Tag = 1
+    GroupName = 'texture'
+    Position.X = 176.000000000000000000
+    Position.Y = 16.000000000000000000
+    Size.Width = 81.000000000000000000
+    Size.Height = 19.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 1
+    Text = 'CubeMap'
+    OnChange = rbTextureChange
+  end
+  object rbShapeSphere: TRadioButton
+    GroupName = 'shape'
+    IsChecked = True
+    Position.X = 120.000000000000000000
+    Position.Y = 320.000000000000000000
+    Size.Width = 73.000000000000000000
+    Size.Height = 19.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 3
+    Text = 'Sphere'
+    OnChange = rbShapeChange
+  end
+  object rbShapeCone: TRadioButton
+    Tag = 1
+    GroupName = 'shape'
+    Position.X = 192.000000000000000000
+    Position.Y = 320.000000000000000000
+    Size.Width = 57.000000000000000000
+    Size.Height = 19.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 4
+    Text = 'Cone'
+    OnChange = rbShapeChange
+  end
+  object rbShapeCylinder: TRadioButton
+    Tag = 2
+    GroupName = 'shape'
+    Position.X = 256.000000000000000000
+    Position.Y = 320.000000000000000000
+    Size.Width = 81.000000000000000000
+    Size.Height = 19.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 5
+    Text = 'Cylender'
+    OnChange = rbShapeChange
+  end
+  object rbShapeCube: TRadioButton
+    Tag = 3
+    GroupName = 'shape'
+    Position.X = 336.000000000000000000
+    Position.Y = 320.000000000000000000
+    Size.Width = 57.000000000000000000
+    Size.Height = 19.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 6
+    Text = 'Cube'
+    OnChange = rbShapeChange
+  end
+  object rbPrimitivePoints: TRadioButton
+    GroupName = 'primitive'
+    Position.X = 184.000000000000000000
+    Position.Y = 344.000000000000000000
+    Size.Width = 73.000000000000000000
+    Size.Height = 19.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 9
+    Text = 'Points'
+    OnChange = rbPrimitiveChange
+  end
+  object rbPrimitiveLines: TRadioButton
+    GroupName = 'primitive'
+    Position.X = 248.000000000000000000
+    Position.Y = 344.000000000000000000
+    Size.Width = 73.000000000000000000
+    Size.Height = 19.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 10
+    Text = 'Lines'
+    OnChange = rbPrimitiveChange
+  end
+  object rbPrimitiveNone: TRadioButton
+    GroupName = 'primitive'
+    IsChecked = True
+    Position.X = 120.000000000000000000
+    Position.Y = 344.000000000000000000
+    Size.Width = 73.000000000000000000
+    Size.Height = 19.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 8
+    Text = 'None'
+    OnChange = rbPrimitiveChange
+  end
+  object Label4: TLabel
+    Position.X = 312.000000000000000000
+    Position.Y = 344.000000000000000000
+    Size.Width = 57.000000000000000000
+    Size.Height = 17.000000000000000000
+    Size.PlatformDefault = False
+    Text = 'Opacity:'
+    TabOrder = 21
+  end
+  object TrackBar1: TTrackBar
+    CanParentFocus = True
+    Max = 1.000000000000000000
+    Orientation = Horizontal
+    Position.X = 360.000000000000000000
+    Position.Y = 344.000000000000000000
+    Size.Width = 185.000000000000000000
+    Size.Height = 20.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 11
+    Value = 1.000000000000000000
+    OnChange = TrackBar1Change
+  end
+  object TextureMaterialSource1: TTextureMaterialSource
+    Left = 400
+    Top = 8
+  end
+  object ColorMaterialSource1: TColorMaterialSource
+    Color = claWhite
+    Left = 528
+    Top = 8
+  end
+  object rbShapeCubeFixed: TRadioButton
+    Tag = 4
+    GroupName = 'shape'
+    Position.X = 400.000000000000000000
+    Position.Y = 320.000000000000000000
+    Size.Width = 97.000000000000000000
+    Size.Height = 19.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 7
+    Text = 'Cube (fixed)'
+    OnChange = rbShapeChange
+  end
+  object ArcDial1: TArcDial
+    Position.X = 512.000000000000000000
+    Position.Y = 392.000000000000000000
+    ShowValue = True
+    Size.Width = 45.000000000000000000
+    Size.Height = 45.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 12
+    OnChange = ArcDial1Change
+  end
+  object ArcDial2: TArcDial
+    Position.X = 512.000000000000000000
+    Position.Y = 448.000000000000000000
+    ShowValue = True
+    Size.Width = 45.000000000000000000
+    Size.Height = 45.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 13
+    OnChange = ArcDial2Change
+  end
+  object ArcDial3: TArcDial
+    Position.X = 512.000000000000000000
+    Position.Y = 504.000000000000000000
+    ShowValue = True
+    Size.Width = 45.000000000000000000
+    Size.Height = 45.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 14
+    OnChange = ArcDial3Change
+  end
+  object btnReset: TButton
+    Position.X = 506.000000000000000000
+    Position.Y = 562.000000000000000000
+    Size.Width = 56.000000000000000000
+    Size.Height = 41.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 15
+    Text = 'Reset'
+    OnClick = btnResetClick
+  end
+  object rbTexturePlainCubeMap: TRadioButton
+    Tag = 2
+    GroupName = 'texture'
+    Position.X = 264.000000000000000000
+    Position.Y = 16.000000000000000000
+    Size.Width = 113.000000000000000000
+    Size.Height = 19.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 2
+    Text = 'Plain CubeMap'
+    OnChange = rbTextureChange
+  end
+  object Label3: TLabel
+    AutoSize = True
+    StyledSettings = [Family, FontColor]
+    Position.X = 576.000000000000000000
+    Position.Y = 8.000000000000000000
+    Size.Width = 145.000000000000000000
+    Size.Height = 32.000000000000000000
+    Size.PlatformDefault = False
+    TextSettings.Font.Size = 24.000000000000000000
+    TextSettings.Font.StyleExt = {00070000000000000004000000}
+    Text = 'Triangles'
+    TabOrder = 20
+  end
+  object ListBox1: TListBox
+    Anchors = [akLeft, akTop, akRight, akBottom]
+    Position.X = 568.000000000000000000
+    Position.Y = 48.000000000000000000
+    Size.Width = 617.000000000000000000
+    Size.Height = 705.000000000000000000
+    Size.PlatformDefault = False
+    StyleLookup = 'listboxstyle'
+    TabOrder = 16
+    ShowSizeGrip = True
+    DisableFocusEffect = True
+    DefaultItemStyles.ItemStyle = ''
+    DefaultItemStyles.GroupHeaderStyle = ''
+    DefaultItemStyles.GroupFooterStyle = ''
+    OnChange = ListBox1Change
+    Viewport.Width = 617.000000000000000000
+    Viewport.Height = 705.000000000000000000
+  end
+end

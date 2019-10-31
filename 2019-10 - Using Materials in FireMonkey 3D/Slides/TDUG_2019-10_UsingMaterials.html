@@ -1,0 +1,205 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+
+  <title>Using Materials in FireMonkey 3D</title>
+
+  <meta name="description" content="All Delphi all the time">
+  <meta name="author" content="Bruce McGee">
+
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+  <link rel="stylesheet" href="css/reveal.css">
+  <link rel="stylesheet" href="css/theme/black.css" id="theme">
+
+  <!-- Theme used for syntax highlighting of code -->
+  <link rel="stylesheet" href="lib/css/zenburn.css">
+
+  <!-- Printing and PDF exports -->
+  <script>
+    var link = document.createElement( 'link' );
+    link.rel = 'stylesheet';
+    link.type = 'text/css';
+    link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+    document.getElementsByTagName( 'head' )[0].appendChild( link );
+  </script>
+
+  <!--[if lt IE 9]>
+  <script src="lib/js/html5shiv.js"></script>
+  <![endif]-->
+</head>
+
+<body>
+  <div class="reveal">
+
+    <!-- Any section element inside of this container is displayed as a slide -->
+    <div class="slides">
+
+      <section>
+        <h1>TDUG</h1>
+        <h2>Oct 2019</h2>
+		<br>
+        <h3>Using Materials in FireMonkey 3D</h3>
+      </section>
+
+
+      <section>
+        <h2>Objects3D Hierarchy</h2>
+        <img src="img\Objects3DHierarchy.png"  alt="Objects3D"><br>
+      </section>
+
+
+      <section>
+        <h2>MaterialSources</h2>
+
+	    <section>
+        <img src="img\TexturedSpheres2.png"  alt="Objects3D"><br>
+		</section>
+
+	    <section>
+		  <p>ColorMaterialSource</p>
+		  <small>
+		  <ul>
+		  <li>Color - Doesn't show 3D surfaces well. Useful for drawing primitives.</li>
+		  </ul>
+		  </small>
+		</section>
+
+	    <section>
+		  <p>TextureMaterialSource</p>
+		  <small>
+		  <ul>
+		  <li>Texture - Any supported image type</li>
+		  <li>BitmapAnimation - Animate between two images</li>
+		  <li>BitmapListAnimation - Animate through multiple frames in the same image (like sprites)</li>
+		  </ul>
+		  </small>
+		</section>
+
+	    <section>
+		  <p>LightMaterialSource</p>
+		  <small>
+		  <ul>
+		  <li>Ambient (shadow/indirect)</li>
+		  <li>Diffuse (reflected colour under direct white light)</li>
+		  <li>Emissive (self-illuminated colour)</li>
+		  <li>Specular (shiny spot)</li>
+		  <li>Texture - just like TextureMaterialSource</li>
+		  </ul>
+		  </small>
+		</section>
+
+	    <section>
+		  <p>Light</p>
+		  <small>
+		  <p>Prerequisite for LightMaterialSource</p>
+		  <ul>
+		  <li>Color</li>
+		  <li>Directional - Light comes from one direction, like the sun</li>
+		  <li>Point - Light originates from TLight and shines in all directions</li>
+		  <li>Spot - Light originates from TLight in a specific direction. Angle controlled by SpotCutOff.</li>
+		  </ul>
+		  </small>
+		</section>
+
+      </section>
+
+
+      <section>
+        <h2>MeshData</h2>
+		<small>
+		<h3>Text Properties (slow):</h3>
+		<ul>
+		<li>Points</li>
+		<li>TriangleIndices</li>
+		<li>TexCoordinates</li>
+		<li>Normals</li>
+		</ul>
+
+		<br>
+		<br>
+
+		<h3>Direct Access (preferred):</h3>
+		<ul>
+		<li>VertexBuffer</li>
+		  <ul>
+			<li>Vertices (Point3D)</li>
+			<li>TexCoord (PointF)</li>
+			<li>Normals (3D Vector)</li>
+		  </ul>
+		<li>IndexBuffer</li>
+		</ul>
+		</small>
+      </section>
+
+
+      <section>
+
+		  <section>
+			<h2>Texture Mapping</h2>
+			<small>
+			<p>Also called UV mapping (nothing to do with ultraviolet). U and V represent the X and Y axes of the texture image. Different letters are used to avoid any confusion with the X, Y and Z axes in the 3D space.</p>
+			<p>Just like with the 3D objects themselves, it's all about the triangles.</p>
+			</small>
+			<img src="img\400px-UVMapping.png"  alt="UVMapping"><br>
+		  </section>
+
+		  <section>
+			<h2>Cube Map</h2>
+			<small>
+			<p>With the default behaviour, cubes show the entire texture image on each face.</p>
+			<p>Getting a texture to wrap around a cube requires a little tinkering.</p>
+			</small>
+			<img src="img\800px-Cube_Representative_UV_Unwrapping.png" width="450"  alt="Cube Map"><br>
+		  </section>
+
+      </section>
+
+      <section>
+        <h2>Notes and Source Code</h2>
+        <small><p>https://github.com/toronto-delphi-user-group/meeting-notes</p></small>
+      </section>
+
+
+      <section>
+        <h1>Questions</h1>
+      </section>
+
+    </div>
+  </div>
+
+  <script src="lib/js/head.min.js"></script>
+  <script src="js/reveal.js"></script>
+
+  <script>
+
+      // More info https://github.com/hakimel/reveal.js#configuration
+      Reveal.initialize({
+          controls: true,
+          progress: true,
+          history: true,
+          center: true,
+
+          transition: 'slide', // none/fade/slide/convex/concave/zoom
+
+          // More info https://github.com/hakimel/reveal.js#dependencies
+          dependencies: [
+              { src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+              { src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+              { src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+              { src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+              { src: 'plugin/search/search.js', async: true },
+              { src: 'plugin/zoom-js/zoom.js', async: true },
+              { src: 'plugin/notes/notes.js', async: true }
+          ]
+      });
+
+  </script>
+
+</body>
+</html>
