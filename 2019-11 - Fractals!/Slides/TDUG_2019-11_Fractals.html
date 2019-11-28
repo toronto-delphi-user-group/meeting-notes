@@ -1,0 +1,350 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+
+  <title>Fractals!</title>
+
+  <meta name="description" content="All Delphi all the time">
+  <meta name="author" content="Bruce McGee">
+
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+  <link rel="stylesheet" href="css/reveal.css">
+  <link rel="stylesheet" href="css/theme/black.css" id="theme">
+
+  <!-- Theme used for syntax highlighting of code -->
+  <link rel="stylesheet" href="lib/css/zenburn.css">
+
+  <!-- Printing and PDF exports -->
+  <script>
+    var link = document.createElement( 'link' );
+    link.rel = 'stylesheet';
+    link.type = 'text/css';
+    link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+    document.getElementsByTagName( 'head' )[0].appendChild( link );
+  </script>
+
+  <!--[if lt IE 9]>
+  <script src="lib/js/html5shiv.js"></script>
+  <![endif]-->
+</head>
+
+<body>
+  <div class="reveal">
+
+    <!-- Any section element inside of this container is displayed as a slide -->
+    <div class="slides">
+
+      <section>
+        <h1>TDUG</h1>
+        <h3>Nov 2019</h3>
+		<br>
+        <h2>Fractals!</h2>
+        <img src="img\TitleCard800.png"  alt="TitleCard"><br>
+		<br>
+		<br>
+      </section>
+
+
+      <section>
+        <h3>What are fractals?</h3>
+		  <section>
+			<small>
+			<p>The term "fractal" was first coined by Benoit Mandelbrot in 1975 based on the Latin frāctus, meaning "broken" or "fractured"</p>
+
+			<blockquote>any of various extremely irregular curves or shapes for which any suitably chosen part is similar in shape to a given larger or smaller part when magnified or reduced to the same size</blockquote>
+			<p>- Marriam-Webster</p>
+
+			<p><q>beautiful, damn hard, increasingly useful. That's fractals</q>
+			- Benoit Mandelbrot</p>
+
+			<p><q>A fractal is by definition a set for which the Hausdorff–Besicovitch dimension strictly exceeds the topological dimension</q>
+			- Benoit Mandelbrot</p>
+
+			<p><q>A fractal is a shape made of parts similar to the whole in some way</q>
+			- Benoit Mandelbrot</p>
+
+			<p><q>...to use fractal without a pedantic definition, to use fractal dimension as a generic term applicable to all the variants</q>
+			- Benoit Mandelbrot</p>
+
+			</small>
+		  </section>
+
+		  <section>
+			<small>
+			<p><q>Fractals are cool</q>
+			-- Me</p>
+
+			<p><q>Oooh, pretty...</q>
+			-- Also me</p>
+
+			</small>
+		  </section>
+      </section>
+
+
+      <section>
+        <h3>Practical Applications</h3>
+		  <section>
+			<br>
+			<p>Graphics for special effects and video games. Natural structures and terrain, like fjords. (see Slartibartfast)</p>
+			<br>
+			<img src="img\260px-Crystalline_Entity_remastered.png" width="250" alt="CrystalineEntity">
+			<img src="img\cgi-genesis-effect.jpg" width="300" alt="Genesis Planet">
+			<img src="img\CarrD3-2.jpg" width="250" alt="Terrain">
+		  </section>
+		  <section>
+			<br>
+		    <p>Model complex systems in the real world</p>
+			<br>
+			<img src="img\fractallungs3.jpg" width="250" alt="Lungs">
+			<img src="img\fractalcirculation.jpg" width="300" alt="Circulation">
+			<img src="img\neuron2.jpg" width="250" alt="Neuron">
+		  </section>
+		  <section>
+			<br>
+			<p>Inspiration for physical structures like fractal antennas</p>
+			<br>
+			<img src="img\fractal_antennax200.jpg" width="250" alt="FractalAntenna">
+			<img src="img\fractal-antenna-for-ham-radio-bands.jpg" width="300" alt="FractalAntenna">
+			<img src="img\frac_05.webp" width="250" alt="FractalAntenna">
+		  </section>
+      </section>
+
+
+      <section>
+        <h2>Barnsley Fern</h2>
+		  <section>
+			<div style="width: 30%; float:left">
+			  <img src="img\barnsleyfern_fourcolor.png" alt="Barnsley Fern">
+			</div>
+
+			<div style="width: 70%; float:right">
+			<small>
+			<ul>
+			  <li>Made to resemble the black spleenwort fern (Asplenium adiantum-nigrum), this is first described by British mathematician Michael Barnsley in his book Fractals Everywhere as an example of an iterated function system.</li>
+			</ul>
+			</small>
+			</div>		
+		  </section>
+		  <section>
+			<div style="width: 30%; float:left">
+			  <img src="img\barnsleyfern_fourcolor.png" alt="Barnsley Fern">
+			</div>
+
+			<div style="width: 70%; float:right">
+			  <img src="img\BarnsleyFormula.png" alt="Barnsley Formula">
+			</div>		
+		  </section>
+      </section>
+
+
+      <section>
+        <h2>Sierpinski Triangle</h2>
+		  <section>
+			<div style="width: 30%; float:left">
+			  <img src="img\Triângulo_de_Sierpinski.gif" alt="Sierpinski Triangle">
+			</div>
+
+			<div style="width: 70%; float:right">
+			<small>
+			<ul>
+			  <li>First described by Polish mathematician Wacław Sierpiński in 1915, though the pattern itself was observed earlier.</li>
+			  <br>
+			  <li>We've seen approximations of this fractal before in Wolfram's CA (rule 90), Conway's Game of Life and Pascal's Triangle. And there are other examples.</li>
+			</ul>
+			</small>
+			</div>		
+		  </section>
+		  <section>
+			<div style="width: 30%; float:left">
+			  <img src="img\Triângulo_de_Sierpinski.gif" alt="Sierpinski Triangle">
+			</div>
+
+			<div style="width: 70%; float:right">
+			<small>
+			<ul>
+			  <p>The Chaos Game</p>
+			  <li>Start with three random points. The vertices of a triangle.</li>
+			  <li>Pick another random point as your current position.</li>
+			  <li>Select one of the triangle vertices at random.</li>
+			  <li>Move half way between the current location and that vertex.</li>
+			  <li>Select another vertex at random and repeat.</li>
+			</ul>
+			</small>
+			</div>		
+		  </section>
+      </section>
+
+
+      <section>
+        <h2>Lorenz Attractor</h2>
+		  <section>
+			<div style="width: 30%; float:left">
+			  <img src="img\A_Trajectory_Through_Phase_Space_in_a_Lorenz_Attractor.gif"  alt="Lorenz Attractor">
+			</div>
+
+			<div style="width: 70%; float:right">
+			<small>
+			<ul>
+			  <li>A simplified mathematical model for atmospheric convection developed by Edward Lorenz in 1963.</li>
+			  <br>
+			  <li>Lorenz also coined the phrase "butterfly effect" which describes a chaotic system's sensitivity to initial conditions. And inspired at least one really bad movie.</li>
+			</ul>
+			</small>
+			</div>		
+		  </section>
+		  <section>
+			<div style="width: 30%; float:left">
+			  <img src="img\A_Trajectory_Through_Phase_Space_in_a_Lorenz_Attractor.gif"  alt="Lorenz Attractor">
+			</div>
+
+			<div style="width: 70%; float:right">
+			<small>
+			<ul>
+			  <li>The three differential equations known as the Lorenz Equations.</li>
+			  <br>
+			  <img src="img\LorenzFormula.png" width="200" alt="Lorenz Formula">
+			  <li>sigma</li>
+			  <li>rho</li>
+			  <li>beta</li>
+			</ul>
+			</small>
+			</div>		
+		  </section>
+      </section>
+
+
+      <section>
+        <h2>Mandelbrot Set</h2>
+		  <section>
+		
+			<div style="width: 30%; float:left">
+			  <img src="img\mandelbrot-set-black-and-white.jpg"  alt="Mandelbrot Set">
+			</div>
+
+			<div style="width: 70%; float:right">
+			<small>
+			  <p>Named after mathematician Benoit Mandelbrot</p>
+			  <blockquote>The Mandelbrot set is the set of complex numbers <i>c</i> for which the function <b>f<sub>c</sub>(z) = z<sup>2</sup> + c</b>  does not diverge when iterated from z = 0, remains bounded in absolute value.</blockquote>
+			  <p>- Wikipedia</p>
+
+			  <img src="img\Mandelbrot1000.jpg" height="150" alt="Lorenz Formola">
+			</small>
+			</div>		
+		  </section>
+		  <section>
+			<div style="width: 30%; float:left">
+			  <img src="img\mandelbrot-set-black-and-white.jpg"  alt="Mandelbrot Set">
+			</div>
+
+			<div style="width: 70%; float:right">
+			<small>
+			<p>What is a complex number and how do you square it?</p>
+			<p>A complex number has two parts. Real (a) and imaginary (b)</p>
+			<ul>
+			  <li>To calculate z<sup>2</sup> + c:</li>
+			  <br>
+			  <li>Start by squaring z</li>
+			  <li>(a+bi)*(a+bi)</li>
+			  <li>a<sup>2</sup> + abi + abi + b<sup>2</sup>i<sup>2</sup></li>
+			  <li>a<sup>2</sup> + 2abi - b<sup>2</sup></li>
+			  <li>a<sup>2</sup>-b<sup>2</sup> + 2abi</li>
+			  <br>
+			  <li>Then add c (which is also a + bi)</li>
+			  <li>a<sup>2</sup>-b<sup>2</sup>+ca + 2abi+cb</li>
+			</ul>
+			</small>
+
+			</div>		
+		  </section>
+      </section>
+
+
+      <section>
+        <h2>Julia Set</h2>
+		  <section>
+		
+			<div style="width: 30%; float:left">
+			  <img src="img\Julia2.png"  alt="Julia Set">
+			</div>
+
+			<div style="width: 70%; float:right">
+			<small>
+			<ul>
+			  <li>Named after the French mathematicians Gaston Julia and Pierre Fatou.</li>
+			  <br>
+			  <li>Very closely tied to the Mandelbrot set. Then math and implementations are almost identical.</li>
+			  <br>
+			  <li>In the Julia set, c is constant instead of changing for each point.</li>
+			</ul>
+			</small>
+			</div>		
+		  </section>
+		  <section>
+			<img src="img\juliaenmandel.png" height="300" alt="Julia">
+		  </section>
+		  <section>
+			<img src="img\JuliaSamples.png" height="300" alt="Julia">
+		  </section>
+		  <section>
+			<img src="img\Set.of.Julia.Sets.2560.jpg"  alt="Julia">
+		  </section>
+      </section>
+
+
+      <section>
+        <h2>Notes and Source Code</h2>
+        <small><p>https://github.com/toronto-delphi-user-group/meeting-notes</p></small>
+      </section>
+
+
+      <section>
+        <h1>Questions</h1>
+      </section>
+
+
+      <section>
+        <img src="img\159235729.jpg" width="50%" alt="Rick">
+		<p>Rick Dermont</p>
+		<p>1934 - 2019</p>
+      </section>
+
+    </div>
+  </div>
+
+  <script src="lib/js/head.min.js"></script>
+  <script src="js/reveal.js"></script>
+
+  <script>
+
+      // More info https://github.com/hakimel/reveal.js#configuration
+      Reveal.initialize({
+          controls: true,
+          progress: true,
+          history: true,
+          center: true,
+
+          transition: 'slide', // none/fade/slide/convex/concave/zoom
+
+          // More info https://github.com/hakimel/reveal.js#dependencies
+          dependencies: [
+              { src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+              { src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+              { src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+              { src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+              { src: 'plugin/search/search.js', async: true },
+              { src: 'plugin/zoom-js/zoom.js', async: true },
+              { src: 'plugin/notes/notes.js', async: true }
+          ]
+      });
+
+  </script>
+
+</body>
+</html>
