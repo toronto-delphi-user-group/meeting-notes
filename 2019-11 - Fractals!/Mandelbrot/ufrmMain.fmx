@@ -1,0 +1,35 @@
+object frmMain: TfrmMain
+  Left = 0
+  Top = 0
+  Caption = 'Mandelbrot'
+  ClientHeight = 570
+  ClientWidth = 832
+  FormFactor.Width = 320
+  FormFactor.Height = 480
+  FormFactor.Devices = [Desktop]
+  OnCreate = FormCreate
+  DesignerMasterStyle = 0
+  object Image1: TImage
+    MultiResBitmap = <
+      item
+      end>
+    Position.X = 8.000000000000000000
+    Position.Y = 32.000000000000000000
+    Size.Width = 820.000000000000000000
+    Size.Height = 528.000000000000000000
+    Size.PlatformDefault = False
+  end
+  object lblTime: TLabel
+    Position.X = 96.000000000000000000
+    Position.Y = 8.000000000000000000
+    Text = '--'
+    TabOrder = 1
+  end
+  object btnRefresh: TButton
+    Position.X = 8.000000000000000000
+    Position.Y = 8.000000000000000000
+    TabOrder = 2
+    Text = 'Refresh'
+    OnClick = btnRefreshClick
+  end
+end

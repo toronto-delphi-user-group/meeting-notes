@@ -1,0 +1,39 @@
+object frmMain: TfrmMain
+  Left = 0
+  Top = 0
+  Caption = 'Mandelbrot with Juila'
+  ClientHeight = 383
+  ClientWidth = 1102
+  FormFactor.Width = 320
+  FormFactor.Height = 480
+  FormFactor.Devices = [Desktop]
+  OnCreate = FormCreate
+  DesignerMasterStyle = 0
+  object Image1: TImage
+    MultiResBitmap = <
+      item
+      end>
+    Position.X = 16.000000000000000000
+    Position.Y = 32.000000000000000000
+    Size.Width = 521.000000000000000000
+    Size.Height = 329.000000000000000000
+    Size.PlatformDefault = False
+    OnMouseMove = Image1MouseMove
+  end
+  object Image2: TImage
+    MultiResBitmap = <
+      item
+      end>
+    Position.X = 544.000000000000000000
+    Position.Y = 32.000000000000000000
+    Size.Width = 521.000000000000000000
+    Size.Height = 329.000000000000000000
+    Size.PlatformDefault = False
+  end
+  object lblTime: TLabel
+    Position.X = 544.000000000000000000
+    Position.Y = 8.000000000000000000
+    Text = '--'
+    TabOrder = 3
+  end
+end

@@ -1,0 +1,48 @@
+object frmMain: TfrmMain
+  Left = 0
+  Top = 0
+  Caption = 'Strange Attractor (Lorenz)'
+  ClientHeight = 527
+  ClientWidth = 894
+  FormFactor.Width = 320
+  FormFactor.Height = 480
+  FormFactor.Devices = [Desktop]
+  OnCreate = FormCreate
+  DesignerMasterStyle = 0
+  object Viewport3D1: TViewport3D
+    Anchors = [akLeft, akTop, akRight, akBottom]
+    Position.X = 16.000000000000000000
+    Position.Y = 8.000000000000000000
+    Size.Width = 865.000000000000000000
+    Size.Height = 497.000000000000000000
+    Size.PlatformDefault = False
+    object Dummy1: TDummy
+      Width = 1.000000000000000000
+      Height = 1.000000000000000000
+      Depth = 1.000000000000000000
+      object FloatAnimation1: TFloatAnimation
+        Enabled = True
+        Duration = 30.000000000000000000
+        Inverse = True
+        Loop = True
+        PropertyName = 'RotationAngle.Y'
+        StartValue = 0.000000000000000000
+        StopValue = 360.000000000000000000
+      end
+      object Mesh1: TMesh
+        Scale.X = 12.000000000000000000
+        Scale.Y = 12.000000000000000000
+        Scale.Z = 12.000000000000000000
+        Width = 1.000000000000000000
+        Height = 1.000000000000000000
+        Depth = 1.000000000000000000
+        OnRender = Mesh1Render
+      end
+    end
+  end
+  object ColorMaterialSource1: TColorMaterialSource
+    Color = claBlack
+    Left = 432
+    Top = 224
+  end
+end

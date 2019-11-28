@@ -1,0 +1,39 @@
+object frmMain: TfrmMain
+  Left = 0
+  Top = 0
+  Caption = 'Sierpinski Triangle (Chaos Game)'
+  ClientHeight = 739
+  ClientWidth = 772
+  FormFactor.Width = 320
+  FormFactor.Height = 480
+  FormFactor.Devices = [Desktop]
+  OnCreate = FormCreate
+  OnDestroy = FormDestroy
+  DesignerMasterStyle = 0
+  object Image1: TImage
+    MultiResBitmap = <
+      item
+      end>
+    Position.X = 160.000000000000000000
+    Position.Y = 8.000000000000000000
+    Size.Width = 601.000000000000000000
+    Size.Height = 713.000000000000000000
+    Size.PlatformDefault = False
+  end
+  object btnRefresh: TButton
+    Position.X = 8.000000000000000000
+    Position.Y = 16.000000000000000000
+    TabOrder = 0
+    Text = 'Refresh'
+    OnClick = btnRefreshClick
+  end
+  object lblTime: TLabel
+    Position.X = 104.000000000000000000
+    Position.Y = 16.000000000000000000
+    Size.Width = 50.000000000000000000
+    Size.Height = 17.000000000000000000
+    Size.PlatformDefault = False
+    Text = '--'
+    TabOrder = 3
+  end
+end
