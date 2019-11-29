@@ -2,8 +2,8 @@ object frmMain: TfrmMain
   Left = 0
   Top = 0
   Caption = 'Mandelbrot with Juila'
-  ClientHeight = 383
-  ClientWidth = 1102
+  ClientHeight = 434
+  ClientWidth = 1129
   FormFactor.Width = 320
   FormFactor.Height = 480
   FormFactor.Devices = [Desktop]
@@ -13,10 +13,10 @@ object frmMain: TfrmMain
     MultiResBitmap = <
       item
       end>
-    Position.X = 16.000000000000000000
+    Position.X = 8.000000000000000000
     Position.Y = 32.000000000000000000
-    Size.Width = 521.000000000000000000
-    Size.Height = 329.000000000000000000
+    Size.Width = 553.000000000000000000
+    Size.Height = 393.000000000000000000
     Size.PlatformDefault = False
     OnMouseMove = Image1MouseMove
   end
@@ -24,16 +24,25 @@ object frmMain: TfrmMain
     MultiResBitmap = <
       item
       end>
-    Position.X = 544.000000000000000000
+    Position.X = 568.000000000000000000
     Position.Y = 32.000000000000000000
-    Size.Width = 521.000000000000000000
-    Size.Height = 329.000000000000000000
+    Size.Width = 553.000000000000000000
+    Size.Height = 393.000000000000000000
     Size.PlatformDefault = False
   end
   object lblTime: TLabel
-    Position.X = 544.000000000000000000
+    Position.X = 568.000000000000000000
     Position.Y = 8.000000000000000000
     Text = '--'
     TabOrder = 3
+  end
+  object Label1: TLabel
+    Position.X = 8.000000000000000000
+    Position.Y = 8.000000000000000000
+    Size.Width = 209.000000000000000000
+    Size.Height = 17.000000000000000000
+    Size.PlatformDefault = False
+    Text = 'Drag mouse over Mandelbrot image'
+    TabOrder = 5
   end
 end

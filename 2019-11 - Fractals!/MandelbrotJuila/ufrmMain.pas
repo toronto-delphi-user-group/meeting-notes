@@ -13,9 +13,13 @@ type
     Image1: TImage;
     Image2: TImage;
     lblTime: TLabel;
+    Label1: TLabel;
     procedure FormCreate(Sender: TObject);
     procedure Image1MouseMove(Sender: TObject; Shift: TShiftState; X, Y: Single);
   private
+    FDrawing: Boolean;
+    FMandelbrotRatio: Single;
+    FJuliaRatio: Single;
     FStopwatch: TStopwatch;
     procedure DrawMandelbrot;
     procedure DrawJulia(ACA, ACB: Double);
@@ -39,6 +43,10 @@ procedure TfrmMain.FormCreate(Sender: TObject);
 begin
   Image1.Bitmap := TBitmap.Create(Trunc(Image1.Width), Trunc(Image1.Height));
   Image2.Bitmap := TBitmap.Create(Trunc(Image2.Width), Trunc(Image2.Height));
+
+  FMandelbrotRatio := Image1.Bitmap.Height / Image1.Bitmap.Width;
+  FJuliaRatio := Image2.Bitmap.Height / Image2.Bitmap.Width;
+
   DrawMandelbrot;
 end;
 
@@ -46,12 +54,24 @@ end;
 procedure TfrmMain.Image1MouseMove(Sender: TObject; Shift: TShiftState; X, Y: Single);
 var
   LCA, LCB: Double;
-  LBitmapRatio: Single;
 begin
-  LBitmapRatio := Image1.Bitmap.Height / Image1.Bitmap.Width;
-  LCA := Map(X, 0, Image1.Bitmap.Width, -2, 2);
-  LCB := Map(Y, 0, Image1.Bitmap.Height, -2 * LBitmapRatio, 2 * LBitmapRatio);
-  DrawJulia(LCA, LCB);
+  if FDrawing then
+    Exit;
+
+  FDrawing := True;
+  try
+    begin
+      FStopwatch := TStopwatch.StartNew;
+      LCA := Map(X, 0, Image1.Bitmap.Width, -2.5, 1.5);
+      LCB := Map(Y, 0, Image1.Bitmap.Height, -2 * FMandelbrotRatio, 2 * FMandelbrotRatio);
+      DrawJulia(LCA, LCB);
+      Application.ProcessMessages;
+    end;
+  finally
+    FDrawing := False;
+    FStopwatch.Stop;
+    lblTime.Text := Format('%.0n ms', [FStopwatch.ElapsedMilliseconds + 0.0]);
+  end;
 end;
 
 // ----------------------------------------------------------------------------
@@ -69,17 +89,13 @@ var
   ca, cb: Double; // Placeholder for original values of c
 
   LBitmapWidth, LBitmapHeight: Integer;
-  LBitmapRatio: Single;
   LPixelColor: TAlphaColor;
   LBright: Double;
   LBitmapData: TBitmapData;
   LScanline: PAlphaColorArray;
 begin
-  FStopwatch := TStopwatch.StartNew;
-
   LBitmapWidth := Image2.Bitmap.Width;
   LBitmapHeight := Image2.Bitmap.Height;
-  LBitmapRatio := LBitmapHeight / LBitmapWidth;
 
   Image2.Bitmap.Clear(TAlphaColorRec.White);
   Image2.Bitmap.Map(TMapAccess.ReadWrite, LBitmapData);
@@ -91,7 +107,7 @@ begin
       begin
 
         a := Map(X, 0, LBitmapWidth, -2, 2);
-        b := Map(Y, 0, LBitmapHeight, -2 * LBitmapRatio, 2 * LBitmapRatio);
+        b := Map(Y, 0, LBitmapHeight, -2 * FJuliaRatio, 2 * FJuliaRatio);
 
         // Retain original values of c
         ca := ACA;
@@ -115,11 +131,11 @@ begin
         end;
 
         if n >= MAX_ITERATIONS then
-          LPixelColor := TAlphaColorRec.Black
+          LPixelColor := TAlphaColorRec.White
         else
         begin
           LBright := Map(n, 0, MAX_ITERATIONS, 0, 1); // Normalise iteration count
-          LPixelColor := TAlphaColorF.Create(LBright, LBright, LBright).ToAlphaColor;
+          LPixelColor := TAlphaColorF.Create(0, 0, LBright).ToAlphaColor;
         end;
 
         LScanline[X] := LPixelColor;
@@ -127,8 +143,7 @@ begin
     end;
   finally
     Image2.Bitmap.Unmap(LBitmapData);
-    FStopwatch.Stop;
-    lblTime.Text := Format('%.0n ms', [FStopwatch.ElapsedMilliseconds + 0.0]);
+    Image2.Repaint;
   end;
 end;
 
@@ -146,7 +161,6 @@ var
   ca, cb: Double; // Placeholder for original values of c
 
   LBitmapWidth, LBitmapHeight: Integer;
-  LBitmapRatio: Single;
   LPixelColor: TAlphaColor;
   LBright: Double;
   LBitmapData: TBitmapData;
@@ -154,7 +168,6 @@ var
 begin
   LBitmapWidth := Image1.Bitmap.Width;
   LBitmapHeight := Image1.Bitmap.Height;
-  LBitmapRatio := LBitmapHeight / LBitmapWidth;
 
   Image1.Bitmap.Clear(TAlphaColorRec.White);
   Image1.Bitmap.Map(TMapAccess.ReadWrite, LBitmapData);
@@ -166,7 +179,7 @@ begin
       begin
 
         a := Map(X, 0, LBitmapWidth, -2.5, 1.5);
-        b := Map(Y, 0, LBitmapHeight, -2 * LBitmapRatio, 2 * LBitmapRatio);
+        b := Map(Y, 0, LBitmapHeight, -2 * FJuliaRatio, 2 * FJuliaRatio);
 
         // Retain original values of c
         ca := a;
