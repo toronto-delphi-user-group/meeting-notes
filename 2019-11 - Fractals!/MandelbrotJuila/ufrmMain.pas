@@ -131,11 +131,11 @@ begin
         end;
 
         if n >= MAX_ITERATIONS then
-          LPixelColor := TAlphaColorRec.White
+          LPixelColor := TAlphaColorRec.Black
         else
         begin
           LBright := Map(n, 0, MAX_ITERATIONS, 0, 1); // Normalise iteration count
-          LPixelColor := TAlphaColorF.Create(0, 0, LBright).ToAlphaColor;
+          LPixelColor := TAlphaColorF.Create(LBright, LBright, LBright).ToAlphaColor;
         end;
 
         LScanline[X] := LPixelColor;
